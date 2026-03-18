@@ -1,4 +1,4 @@
-package com.example.ecotrack
+package com.jashan.ecotrack
 
 data class ForecastResponse(
     val list: List<ForecastItem>

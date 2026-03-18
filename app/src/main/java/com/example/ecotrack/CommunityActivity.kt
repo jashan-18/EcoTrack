@@ -1,4 +1,4 @@
-package com.example.ecotrack
+package com.jashan.ecotrack
 
 import android.app.Activity
 import android.content.Intent
@@ -8,6 +8,7 @@ import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+
 import com.google.firebase.database.*
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference

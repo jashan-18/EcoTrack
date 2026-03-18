@@ -1,4 +1,4 @@
-package com.example.ecotrack
+package com.jashan.ecotrack
 
 import android.view.LayoutInflater
 import android.view.View

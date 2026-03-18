@@ -42,6 +42,43 @@
           ]
         }
       }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:612698979159:android:6557bc2f745b9d37e61c12",
+        "android_client_info": {
+          "package_name": "com.jashan.ecotrack"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "612698979159-9vmq3bb3gp4jb8efjcarebjirv35alok.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.jashan.ecotrack",
+            "certificate_hash": "acbe67ad7652f9a3ba6ca1b309effdbcbd60e4c5"
+          }
+        },
+        {
+          "client_id": "612698979159-6m77r8a4h13p5onkvc94k3cdqgptk3ks.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBFkHsayZjhP1HBiDbaQUwU4arlcq51uPk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "612698979159-6m77r8a4h13p5onkvc94k3cdqgptk3ks.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
     }
   ],
   "configuration_version": "1"

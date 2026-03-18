@@ -1,5 +1,4 @@
-package com.example.ecotrack
-
+package com.jashan.ecotrack
 import android.os.Bundle
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
@@ -112,7 +111,7 @@ class WeatherActivity : AppCompatActivity() {
 
                 if (response.isSuccessful && response.body() != null) {
 
-                    // Take 1 forecast per day (every 8th item)
+
                     val dailyList = response.body()!!.list
                         .filterIndexed { index, _ -> index % 8 == 0 }
 

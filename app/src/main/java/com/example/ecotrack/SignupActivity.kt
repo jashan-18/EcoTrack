@@ -1,4 +1,4 @@
-package com.example.ecotrack
+package com.jashan.ecotrack
 
 import android.content.Intent
 import android.os.Bundle

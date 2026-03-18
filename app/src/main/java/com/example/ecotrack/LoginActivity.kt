@@ -1,4 +1,4 @@
-package com.example.ecotrack
+package com.jashan.ecotrack
 
 import android.content.Intent
 import android.os.Bundle
@@ -30,7 +30,6 @@ class LoginActivity : AppCompatActivity() {
         val progress = findViewById<ProgressBar>(R.id.loginProgress)
         val tvSignup = findViewById<TextView>(R.id.tvSignup)
 
-        // 🔹 Google Sign-In Configuration
         val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
             .requestIdToken(getString(R.string.default_web_client_id))
             .requestEmail()
@@ -38,7 +37,7 @@ class LoginActivity : AppCompatActivity() {
 
         googleSignInClient = GoogleSignIn.getClient(this, gso)
 
-        // 🔹 Email Login
+        // ✅ EMAIL LOGIN
         btnLogin.setOnClickListener {
 
             val email = etEmail.text.toString().trim()
@@ -61,8 +60,16 @@ class LoginActivity : AppCompatActivity() {
                         val user = auth.currentUser!!
 
                         if (user.isEmailVerified) {
+
+                            // ✅ SAVE SESSION DATA
+                            saveUserSession(
+                                user.displayName ?: "EcoTrack User",
+                                user.email ?: ""
+                            )
+
                             startActivity(Intent(this, HomeActivity::class.java))
                             finish()
+
                         } else {
                             auth.signOut()
                             Toast.makeText(
@@ -78,22 +85,18 @@ class LoginActivity : AppCompatActivity() {
                 }
         }
 
-        // 🔹 Google Login
+        // ✅ GOOGLE LOGIN
         btnGoogle.setOnClickListener {
             val signInIntent = googleSignInClient.signInIntent
             startActivityForResult(signInIntent, RC_SIGN_IN)
         }
 
-        // 🔹 Go to Signup
         tvSignup.setOnClickListener {
             startActivity(Intent(this, SignupActivity::class.java))
         }
     }
 
-
-
-
-    // 🔹 Handle Google Result
+    // ✅ GOOGLE RESULT
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
 
@@ -109,7 +112,7 @@ class LoginActivity : AppCompatActivity() {
         }
     }
 
-    // 🔹 Firebase Google Auth
+    // ✅ GOOGLE FIREBASE AUTH
     private fun firebaseAuthWithGoogle(idToken: String) {
 
         val credential = GoogleAuthProvider.getCredential(idToken, null)
@@ -131,6 +134,12 @@ class LoginActivity : AppCompatActivity() {
                         .child(user.uid)
                         .setValue(userData)
 
+                    // ✅ SAVE SESSION DATA
+                    saveUserSession(
+                        user.displayName ?: "EcoTrack User",
+                        user.email ?: ""
+                    )
+
                     startActivity(Intent(this, HomeActivity::class.java))
                     finish()
 
@@ -138,5 +147,18 @@ class LoginActivity : AppCompatActivity() {
                     Toast.makeText(this, "Authentication Failed", Toast.LENGTH_SHORT).show()
                 }
             }
+    }
+
+    // ✅ SESSION FUNCTION (VERY IMPORTANT)
+    private fun saveUserSession(name: String, email: String) {
+
+        val sharedPref = getSharedPreferences("EcoTrackUser", MODE_PRIVATE)
+        val editor = sharedPref.edit()
+
+        editor.putString("name", name)
+        editor.putString("email", email)
+        editor.putBoolean("isLoggedIn", true)
+
+        editor.apply()
     }
 }

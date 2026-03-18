@@ -8,8 +8,8 @@
             <InsightsFilterSettings>
               <option name="connection">
                 <ConnectionSetting>
-                  <option name="appId" value="com.example.ecotrack" />
-                  <option name="mobileSdkAppId" value="1:612698979159:android:f70de002fcd0ba9ae61c12" />
+                  <option name="appId" value="com.jashan.ecotrack" />
+                  <option name="mobileSdkAppId" value="1:612698979159:android:6557bc2f745b9d37e61c12" />
                   <option name="projectId" value="ecotrack-9525d" />
                   <option name="projectNumber" value="612698979159" />
                 </ConnectionSetting>

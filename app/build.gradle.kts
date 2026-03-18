@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace = "com.example.ecotrack"
+    namespace = "com.jashan.ecotrack"
     compileSdk {
         version = release(36) {
             minorApiLevel = 1
@@ -12,11 +12,11 @@ android {
     }
 
     defaultConfig {
-        applicationId = "com.example.ecotrack"
+        applicationId = "com.jashan.ecotrack"
         minSdk = 24
         targetSdk = 36
-        versionCode = 1
-        versionName = "1.0"
+        versionCode = 2
+        versionName = "1.1"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }

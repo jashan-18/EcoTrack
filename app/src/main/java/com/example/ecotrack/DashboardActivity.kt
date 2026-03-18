@@ -1,4 +1,4 @@
-package com.example.ecotrack
+package com.jashan.ecotrack
 
 import android.Manifest
 import android.content.Intent
@@ -16,6 +16,7 @@ import androidx.appcompat.widget.SwitchCompat
 import androidx.core.app.ActivityCompat
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
+
 import com.github.mikephil.charting.charts.LineChart
 import com.github.mikephil.charting.components.XAxis
 import com.github.mikephil.charting.data.Entry
@@ -94,7 +95,7 @@ class DashboardActivity : AppCompatActivity() {
         }
     }
 
-    // 📍 Auto Location
+
     private fun getCurrentLocation() {
 
         if (ActivityCompat.checkSelfPermission(
@@ -130,7 +131,7 @@ class DashboardActivity : AppCompatActivity() {
         }
     }
 
-    // 🌍 WAQI API
+
     private fun fetchAQIData(city: String) {
 
         progressBar.visibility = View.VISIBLE
