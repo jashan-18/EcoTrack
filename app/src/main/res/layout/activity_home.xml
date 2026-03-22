@@ -3,16 +3,51 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg_dashboard_gradient"
-    android:paddingTop="30dp">
+    android:background="@drawable/bg_dashboard_gradient">
 
-    <!-- Scroll Content -->
+    <!-- ===== TOP SEARCH + FAV ===== -->
+
+    <LinearLayout
+        android:id="@+id/topLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="10dp">
+
+        <SearchView
+            android:layout_marginTop="45dp"
+            android:id="@+id/searchCity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:queryHint="Search city in India"
+            android:iconifiedByDefault="false"/>
+
+        <TextView
+            android:id="@+id/tvFavTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Favourite Cities"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="@android:color/black"
+            android:layout_marginTop="8dp"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvFavCity"
+            android:layout_width="match_parent"
+            android:layout_height="160dp"
+            android:layout_marginTop="6dp"/>
+
+    </LinearLayout>
+
+    <!-- ===== MAIN CARDS SCROLL ===== -->
+
     <ScrollView
+        android:layout_below="@id/topLayout"
+        android:layout_above="@id/bottomNav"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@id/bottomNav"
-        android:fillViewport="true"
-        android:overScrollMode="never">
+        android:fillViewport="true">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -20,17 +55,7 @@
             android:orientation="vertical"
             android:padding="20dp">
 
-            <!-- Title -->
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="EcoTrack Dashboard"
-                android:textSize="26sp"
-                android:textStyle="bold"
-                android:textColor="@android:color/background_dark"
-                android:layout_marginBottom="20dp" />
-
-            <!-- Weather Card -->
+            <!-- WEATHER CARD -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardWeather"
                 android:layout_width="match_parent"
@@ -41,35 +66,18 @@
                 app:cardElevation="12dp"
                 app:cardBackgroundColor="#66BB6A">
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical"
-                    android:padding="20dp"
-                    android:gravity="center_vertical">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="🌦 Weather"
-                        android:textSize="22sp"
-                        android:textStyle="bold"
-                        android:textColor="@android:color/white" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Check live forecast and temperature"
-                        android:textSize="14sp"
-                        android:textColor="@android:color/white"
-                        android:alpha="0.8"
-                        android:layout_marginTop="6dp" />
-
-                </LinearLayout>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="🌦 Weather"
+                    android:textSize="22sp"
+                    android:textStyle="bold"
+                    android:textColor="@android:color/white"
+                    android:layout_gravity="center"/>
 
             </androidx.cardview.widget.CardView>
 
-            <!-- Community Card -->
+            <!-- COMMUNITY CARD -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardCommunity"
                 android:layout_width="match_parent"
@@ -80,70 +88,35 @@
                 app:cardElevation="12dp"
                 app:cardBackgroundColor="#26A69A">
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical"
-                    android:padding="20dp"
-                    android:gravity="center_vertical">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="👥 Community"
-                        android:textSize="22sp"
-                        android:textStyle="bold"
-                        android:textColor="@android:color/white" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Report pollution and view nearby alerts"
-                        android:textSize="14sp"
-                        android:textColor="@android:color/white"
-                        android:alpha="0.8"
-                        android:layout_marginTop="6dp" />
-
-                </LinearLayout>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="👥 Community"
+                    android:textSize="22sp"
+                    android:textStyle="bold"
+                    android:textColor="@android:color/white"
+                    android:layout_gravity="center"/>
 
             </androidx.cardview.widget.CardView>
 
-            <!-- Dashboard Card -->
+            <!-- AQI CARD -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardDashboard"
                 android:layout_width="match_parent"
                 android:layout_height="140dp"
-                android:layout_marginBottom="10dp"
                 android:foreground="?attr/selectableItemBackground"
                 app:cardCornerRadius="28dp"
                 app:cardElevation="12dp"
                 app:cardBackgroundColor="#5C6BC0">
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical"
-                    android:padding="20dp"
-                    android:gravity="center_vertical">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="📊 Air Quality"
-                        android:textSize="22sp"
-                        android:textStyle="bold"
-                        android:textColor="@android:color/white" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="View AQI trends and pollution stats"
-                        android:textSize="14sp"
-                        android:textColor="@android:color/white"
-                        android:alpha="0.8"
-                        android:layout_marginTop="6dp" />
-
-                </LinearLayout>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="📊 Air Quality"
+                    android:textSize="22sp"
+                    android:textStyle="bold"
+                    android:textColor="@android:color/white"
+                    android:layout_gravity="center"/>
 
             </androidx.cardview.widget.CardView>
 
@@ -151,22 +124,22 @@
 
     </ScrollView>
 
+    <!-- ===== FRAGMENT CONTAINER ===== -->
+
     <FrameLayout
         android:id="@+id/frameContainer"
-
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@id/bottomNav"/>
 
-    <!-- Bottom Navigation -->
+    <!-- ===== BOTTOM NAV ===== -->
+
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNav"
         android:layout_width="match_parent"
-        android:layout_height="90dp"
+        android:layout_height="80dp"
         android:layout_alignParentBottom="true"
         android:background="@android:color/white"
-        app:itemIconTint="@color/primaryGreen"
-        app:itemTextColor="@color/primaryGreen"
-        app:menu="@menu/bottom_menu" />
+        app:menu="@menu/bottom_menu"/>
 
 </RelativeLayout>

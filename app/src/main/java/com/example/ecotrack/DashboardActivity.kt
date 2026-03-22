@@ -10,6 +10,7 @@ import android.os.Build
 import android.os.Bundle
 import android.view.View
 import android.widget.*
+import androidx.annotation.RequiresPermission
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.appcompat.widget.SwitchCompat
@@ -266,6 +267,7 @@ class DashboardActivity : AppCompatActivity() {
         }
     }
 
+    @RequiresPermission(Manifest.permission.POST_NOTIFICATIONS)
     private fun showAQINotification(aqi: Int) {
         val builder = NotificationCompat.Builder(this, "AQI_CHANNEL")
             .setSmallIcon(R.drawable.ic_launcher_foreground)
