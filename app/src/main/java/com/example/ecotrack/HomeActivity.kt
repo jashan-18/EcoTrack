@@ -52,7 +52,7 @@ class HomeActivity : AppCompatActivity() {
         }
 
         cardCommunity.setOnClickListener {
-            startActivity(Intent(this, CommunityActivity::class.java))
+            startActivity(Intent(this, WeatherActivity::class.java))
         }
 
         cardDashboard.setOnClickListener {
