@@ -48,7 +48,7 @@ class HomeActivity : AppCompatActivity() {
         frameContainer.visibility = View.GONE
 
         cardWeather.setOnClickListener {
-            startActivity(Intent(this, WeatherActivity::class.java))
+            startActivity(Intent(this, MainActivity::class.java))
         }
 
         cardCommunity.setOnClickListener {
