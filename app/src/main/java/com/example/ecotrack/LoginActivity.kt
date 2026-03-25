@@ -107,7 +107,11 @@ class LoginActivity : AppCompatActivity() {
                 val account = task.getResult(ApiException::class.java)
                 firebaseAuthWithGoogle(account.idToken!!)
             } catch (e: ApiException) {
-                Toast.makeText(this, "Google Sign In Failed", Toast.LENGTH_SHORT).show()
+                Toast.makeText(
+                    this,
+                    "Google Sign In Failed : ${e.statusCode}",
+                    Toast.LENGTH_LONG
+                ).show()
             }
         }
     }
@@ -144,7 +148,7 @@ class LoginActivity : AppCompatActivity() {
                     finish()
 
                 } else {
-                    Toast.makeText(this, "Authentication Failed", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "Authentication Failed Retry Later", Toast.LENGTH_SHORT).show()
                 }
             }
     }
