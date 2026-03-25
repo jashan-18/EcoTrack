@@ -17,7 +17,7 @@ class WeatherActivity : AppCompatActivity() {
     private lateinit var tvWind: TextView
     private lateinit var recyclerForecast: RecyclerView
 
-    private val API_KEY = "79eb5e1a5f8adf2b6f8c183410786f7b"
+    private val API_KEY = "e87503bbd0111ed0100f742ab3d9d3da"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,7 +31,7 @@ class WeatherActivity : AppCompatActivity() {
         tvWind = findViewById(R.id.tvWind)
         recyclerForecast = findViewById(R.id.recyclerForecast)
 
-        recyclerForecast.layoutManager = LinearLayoutManager(this)
+        recyclerForecast.layoutManager = LinearLayoutManager(this )
 
         btnSearch.setOnClickListener {
             val city = etCity.text.toString().trim()
@@ -120,8 +120,8 @@ class WeatherActivity : AppCompatActivity() {
                 } else {
                     Toast.makeText(
                         this@WeatherActivity,
-                        "Forecast not available",
-                        Toast.LENGTH_SHORT
+                        "Forecast Error Code: ${response.code()}",
+                        Toast.LENGTH_LONG
                     ).show()
                 }
             }
