@@ -52,6 +52,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "612698979159-9vmq3bb3gp4jb8efjcarebjirv35alok.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.jashan.ecotrack",
+            "certificate_hash": "acbe67ad7652f9a3ba6ca1b309effdbcbd60e4c5"
+          }
+        },
+        {
           "client_id": "612698979159-6m77r8a4h13p5onkvc94k3cdqgptk3ks.apps.googleusercontent.com",
           "client_type": 3
         }
